@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GD Technology - Web Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background: #0f172a;
+            color: white;
+            overflow-x: hidden;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff00ff;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #ff00ff;
+        }
+        .hero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            background: url('https://source.unsplash.com/1600x900/?technology') no-repeat center;
+            background-size: cover;
+            position: relative;
+        }
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .hero h1 {
+            font-size: 50px;
+            font-weight: bold;
+            z-index: 2;
+            text-transform: uppercase;
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+        @keyframes fadeInUp {
+            0% { transform: translateY(50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        .form-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            width: 350px;
+        }
+        .form-container h2 {
+            margin-bottom: 20px;
+        }
+        .form-container input, .form-container textarea {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: none;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .form-container input::placeholder, .form-container textarea::placeholder {
+            color: white;
+        }
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background: #0056b3;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .web-design-services {
+    padding: 50px 0;
+    text-align: left;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.breadcrumb {
+    font-size: 14px;
+    color: #007bff;
+}
+
+.breadcrumb a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.section-subtitle {
+    font-size: 14px;
+    color: #007bff;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 10px;
+}
+
+.section-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0;
+}
+
+.section-description {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.section-description a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.image-container {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+.stats-section {
+    background-color: #f8f9fc;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.stats-box {
+    flex: 1;
+    text-align: center;
+}
+
+.stats-number {
+    font-size: 36px;
+    font-weight: bold;
+    color: #007bff;
+}
+
+.stats-label {
+    font-size: 14px;
+    color: #333;
+    text-transform: uppercase;
+    margin-top: 5px;
+}
+.success-stories {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.success-stories h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.success-stories p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.success-stories a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.stories-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.story-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px;
+    text-align: left;
+}
+
+.story-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.story-content {
+    padding: 15px;
+}
+
+.story-content h3 {
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    margin: 0;
+    font-size: 18px;
+}
+
+.story-content p {
+    font-size: 14px;
+    color: #333;
+    margin-top: 10px;
+}
+.web-design-services {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.web-design-services h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.web-design-services p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.service-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 20px;
+    border-radius: 8px;
+    background: #f9f9f9;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.service-item i.icon {
+    font-size: 24px;
+    color: #007bff;
+}
+
+.service-item h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.service-item p {
+    font-size: 14px;
+    color: #333;
+    margin: 0;
+}
+.benefits-section {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.benefits-section h2 {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.benefits-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    width: 45%;
+    padding: 20px;
+    border-radius: 8px;
+    background: #f9f9f9;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.benefit-item i.icon {
+    font-size: 24px;
+    color: #007bff;
+}
+
+.benefit-item h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.benefit-item p {
+    font-size: 14px;
+    color: #333;
+    margin: 0;
+}
+
+.benefit-image img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+.why-choose-us {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.why-choose-us h2 {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.why-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.why-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    width: 45%;
+    padding: 20px;
+    border-radius: 8px;
+    background: #f9f9f9;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.why-item i.icon {
+    font-size: 24px;
+    color: #007bff;
+}
+
+.why-item h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.why-item p {
+    font-size: 14px;
+    color: #333;
+    margin: 0;
+}
+
+.why-image img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+.faq-section {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.faq-section h2 {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: auto;
+}
+
+.faq-item {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: #f9f9f9;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.faq-question {
+    width: 100%;
+    background: white;
+    border: none;
+    text-align: left;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.faq-answer {
+    display: none;
+    padding: 15px;
+    background: #fff;
+    border-top: 1px solid #ddd;
+}
+
+.faq-answer.open {
+    display: block;
+}
+
+.faq-question span {
+    color: blue;
+    font-size: 18px;
+}
+.footer {
+    background: #111;
+    color: white;
+    padding: 50px 20px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.footer-about {
+    max-width: 350px;
+}
+
+.footer-logo {
+    width: 150px;
+    margin-bottom: 10px;
+}
+
+.footer-social h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 20px;
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-column {
+    min-width: 180px;
+}
+
+.footer-column h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-column ul li a:hover {
+    text-decoration: underline;
+}
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">GD Technology</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="hero">
+        <div class="form-container">
+            <h2>GET A FREE PROPOSAL</h2>
+            <form>
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="tel" placeholder="Number" required>
+                <input type="text" placeholder="Website" required>
+                <textarea placeholder="Message" rows="3" required></textarea>
+                <button type="submit">Get Your Free Proposal Now!</button>
+            </form>
+        </div>
+    </div>
+    <section class="web-design-services">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="#">Home</a> / 
+                <a href="#">Digital Marketing Services</a> /
+                <span>Web Design Services</span>
+            </nav>
+            <h4 class="section-subtitle">WEB DESIGN SERVICES IN INDIA</h4>
+            <h2 class="section-title">Web Design Services in India Building Your Brand's Online Success</h2>
+            <p class="section-description">
+                Bloom Agency is the best <a href="#">web design</a> company in India, focusing on creating aesthetically 
+                beautiful and most functional sites that better serve business objectives. A good website acts as the 
+                root of your online existence—your brand, attracting customers, and generating sales. 
+                At <a href="#">Bloom Digital Marketing Agency</a>, we specialize in delivering whole web design services in 
+                India to meet diverse business needs. From their great website design to optimizing your websites 
+                for search engines, our expertise will take your brand to the maximum level possible online.
+            </p>
+            <div class="image-container">
+                <img src="https://bloomagency.in/wp-content/uploads/2024/09/Mumbai-website-development-services-1.jpg" alt="Web Design Services Preview">
+            </div>
+        </div>
+    </section>
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-box">
+                <h2 class="stats-number">100+</h2>
+                <p class="stats-label">PROJECTS DONE</p>
+            </div>
+            <div class="stats-box">
+                <h2 class="stats-number">50+</h2>
+                <p class="stats-label">HAPPY CLIENTS</p>
+            </div>
+            <div class="stats-box">
+                <h2 class="stats-number">10</h2>
+                <p class="stats-label">TEAM MEMBERS</p>
+            </div>
+            <div class="stats-box">
+                <h2 class="stats-number">3</h2>
+                <p class="stats-label">COUNTRIES</p>
+            </div>
+        </div>
+    </section>
+    <section class="success-stories">
+        <h2>Bloom’s Success Stories For Web Design Services In India</h2>
+        <p>How Bloom <a href="#">Digital Marketing Agency</a> helped businesses achieve their goals:</p>
+    
+        <div class="stories-container">
+            <div class="story-card">
+                <img src="finance.jpg" alt="Finance Tech">
+                <div class="story-content">
+                    <h3>Financity Tech</h3>
+                    <p>Transforming marketing through deep customer insights and analytics.</p>
+                    <p>Optimized site led to a 30% boost in client engagement.</p>
+                </div>
+            </div>
+    
+            <div class="story-card">
+                <img src="sparkla.jpg" alt="Sparkla Jewellery">
+                <div class="story-content">
+                    <h3>Sparkla Jewellery</h3>
+                    <p>High-quality jewelry crafted from the finest materials.</p>
+                    <p>Revamped design increased online sales by 40% in three months.</p>
+                </div>
+            </div>
+    
+            <div class="story-card">
+                <img src="hippe.jpg" alt="Hippe">
+                <div class="story-content">
+                    <h3>Hippe</h3>
+                    <p>Hippie.in sought to enhance their online presence by revamping website design.</p>
+                    <p>Enhanced user interface improved student enrollment by 25%.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="web-design-services">
+        <h2>Our Web Design Services</h2>
+        <p>With Bloom Digital Marketing Agency, you get all the web design services as per your business needs and target audience.</p>
+    
+        <div class="services-container">
+            <div class="service-item">
+                <i class="icon">&#128202;</i>
+                <h3>Custom Web Design</h3>
+                <p>We give you that exclusive look that communicates brand image to deliver an excellent user experience.</p>
+            </div>
+    
+            <div class="service-item">
+                <i class="icon">&#128187;</i>
+                <h3>Responsive Web Design</h3>
+                <p>They look great and work seamlessly on every device—from desktop to your chosen smartphone.</p>
+            </div>
+    
+            <div class="service-item">
+                <i class="icon">&#9878;</i>
+                <h3>E-Commerce Website Design</h3>
+                <p>We have developed user-friendly, safe, and simple navigation with smooth check-out online stores.</p>
+            </div>
+    
+            <div class="service-item">
+                <i class="icon">&#128188;</i>
+                <h3>Shopify Website Design</h3>
+                <p>Since we are a Shopify Partner, we are experts at building as well as optimizing Shopify stores for increasing sales and great user experience.</p>
+            </div>
+    
+            <div class="service-item">
+                <i class="icon">&#9997;</i>
+                <h3>Content Writing Services</h3>
+                <p>We provide rich content that is SEO-friendly so that it reflects your brand’s personality and keeps it interesting for your audience.</p>
+            </div>
+    
+            <div class="service-item">
+                <i class="icon">&#127807;</i>
+                <h3>Photography Services</h3>
+                <p>Show the world your product and services through high-quality photography services to bring the best visual appeal to your website.</p>
+            </div>
+    
+            <div class="service-item">
+                <i class="icon">&#128200;</i>
+                <h3>SEO Services</h3>
+                <p>Through our comprehensive solutions in SEO, your website will find better visibility with our cover of both on-page and off-page SEO.</p>
+            </div>
+    
+            <div class="service-item">
+                <i class="icon">&#128295;</i>
+                <h3>Technical SEO</h3>
+                <p>Optimizing your website’s internal architecture for better search engine ranking.</p>
+            </div>
+    
+            <div class="service-item">
+                <i class="icon">&#128179;</i>
+                <h3>BigCommerce Web Design</h3>
+                <p>Ready to launch your online store? Contact us today for a secure and SEO-optimized BigCommerce web design.</p>
+            </div>
+        </div>
+    </section>
+    <section class="benefits-section">
+        <h2>Benefits of Partnering with Bloom Digital Marketing Agency For Web Design Services In India</h2>
+    
+        <div class="benefits-container">
+            <div class="benefit-item">
+                <i class="icon">&#127919;</i>
+                <div>
+                    <h3>Expertise Across Various Industries</h3>
+                    <p>We are experienced with a whole array of different clients across industries and delivering websites that actually meet the specific business goals.</p>
+                </div>
+            </div>
+    
+            <div class="benefit-item">
+                <i class="icon">&#128200;</i>
+                <div>
+                    <h3>Transparent Communication and Collaboration</h3>
+                    <p>We ensure complete transparent communication during the project in order to involve you and inform you every step of the way.</p>
+                </div>
+            </div>
+    
+            <div class="benefit-item">
+                <i class="icon">&#128161;</i>
+                <div>
+                    <h3>Cutting-Edge Tools and Technologies</h3>
+                    <p>We always use the very best of web design tools and technologies in order to deliver on security, speed, and future-proof websites.</p>
+                </div>
+            </div>
+    
+            <div class="benefit-item">
+                <i class="icon">&#128142;</i>
+                <div>
+                    <h3>Integrated Services</h3>
+                    <p>Be it content writing or photography or SEO and CRO services, we offer the gamut of services aimed towards showcasing your website in maximum potential.</p>
+                </div>
+            </div>
+    
+            <div class="benefit-image">
+                <img src="https://bloomagency.in/wp-content/uploads/2024/09/Web-Design-Services-That-Drive-Results.jpg" alt="Web Design Preview">
+            </div>
+        </div>
+    </section>
+    <section class="why-choose-us">
+        <h2>Why GD Digital Marketing Agency Stands Out</h2>
+    
+        <div class="why-container">
+            <div class="why-item">
+                <i class="icon">&#127919;</i>
+                <div>
+                    <h3>Results-Oriented Solution</h3>
+                    <p>We create websites that bring you business results.</p>
+                </div>
+            </div>
+    
+            <div class="why-item">
+                <i class="icon">&#128200;</i>
+                <div>
+                    <h3>Personalized Solutions</h3>
+                    <p>Each project is unique, and we will tailor our service offer to address the precise needs and challenges for you.</p>
+                </div>
+            </div>
+    
+            <div class="why-item">
+                <i class="icon">&#128161;</i>
+                <div>
+                    <h3>Competitive Pricing</h3>
+                    <p>High-quality service at competitive prices—that's value for money.</p>
+                </div>
+            </div>
+    
+            <div class="why-item">
+                <i class="icon">&#128142;</i>
+                <div>
+                    <h3>Recognized Expertise</h3>
+                    <p>Proven track record and numerous awards, with many client success stories.</p>
+                </div>
+            </div>
+    
+            <div class="why-image">
+                <img src="https://bloomagency.in/wp-content/uploads/elementor/thumbs/Why-Bloom-Web-Site-Design-qtiuyb9wrwkkzx1dqqxr7ppsfkuev295pajsn04je0.gif" alt="Marketing Agency Portfolio">
+            </div>
+        </div>
+    </section>
+    <section class="faq-section">
+        <h2>Web Design Services in India FAQs</h2>
+    
+        <div class="faq-container">
+            <div class="faq-item">
+                <button class="faq-question">How much does web design in India cost? <span>&#8599;</span></button>
+                <div class="faq-answer">
+                    <p>The cost of web design in India varies based on features, complexity, and design requirements.</p>
+                </div>
+            </div>
+    
+            <div class="faq-item">
+                <button class="faq-question">How long does it take to build a website? <span>&#8599;</span></button>
+                <div class="faq-answer">
+                    <p>The timeline depends on project scope, but it usually takes 2-6 weeks.</p>
+                </div>
+            </div>
+    
+            <div class="faq-item">
+                <button class="faq-question">What platforms do you specialize in? <span>&#8599;</span></button>
+                <div class="faq-answer">
+                    <p>We specialize in WordPress, Shopify, custom-built websites, and more.</p>
+                </div>
+            </div>
+    
+            <div class="faq-item">
+                <button class="faq-question">What is the first step that I take with Bloom Digital Marketing Agency? <span>&#8599;</span></button>
+                <div class="faq-answer">
+                    <p>The first step is a consultation to understand your business needs.</p>
+                </div>
+            </div>
+    
+            <div class="faq-item">
+                <button class="faq-question">Will my site be mobile-friendly? <span>&#8599;</span></button>
+                <div class="faq-answer">
+                    <p>Yes! We ensure all our websites are fully responsive and mobile-friendly.</p>
+                </div>
+            </div>
+    
+            <div class="faq-item">
+                <button class="faq-question active">Do you offer any post-launch maintenance and support?</button>
+                <div class="faq-answer open">
+                    <p>We provide after-launch maintenance and support with regular updates, bug fixing, and performance enhancements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-about">
+                <img src="logo.png" alt="Bloom Logo" class="footer-logo">
+                <p>GD technologies Agency is a premier digital marketing agency renowned for its expertise in SEO, web design, and comprehensive digital strategies.</p>
+            </div>
+    
+            <div class="footer-social">
+                <h3>FOLLOW US</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+    
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h3>WEBSITE DESIGN AGENCY</h3>
+                    <ul>
+                        <li><a href="#">Website Design</a></li>
+                        <li><a href="#">Branding Services</a></li>
+                        <li><a href="#">eCommerce Marketing</a></li>
+                        <li><a href="#">Digital Marketing Strategy Development</a></li>
+                        <li><a href="#">eCommerce Website Development</a></li>
+                        <li><a href="#">Custom Website Design</a></li>
+                        <li><a href="#">Website Maintenance Services</a></li>
+                    </ul>
+                </div>
+    
+                <div class="footer-column">
+                    <h3>ECOMMERCE SERVICES</h3>
+                    <ul>
+                        <li><a href="#">Ecommerce Marketing</a></li>
+                        <li><a href="#">Ecommerce PPC</a></li>
+                        <li><a href="#">Ecommerce Web Design</a></li>
+                        <li><a href="#">Shopify Web Design</a></li>
+                        <li><a href="#">Jewelry eCommerce Web Design</a></li>
+                        <li><a href="#">WooCommerce Development</a></li>
+                    </ul>
+                </div>
+    
+                <div class="footer-column">
+                    <h3>SEO SERVICES</h3>
+                    <ul>
+                        <li><a href="#">Ecommerce SEO Services</a></li>
+                        <li><a href="#">Lead Generation SEO</a></li>
+                        <li><a href="#">SEO Copywriting Service</a></li>
+                        <li><a href="#">SEO Audits</a></li>
+                        <li><a href="#">Local SEO</a></li>
+                        <li><a href="#">Technical SEO</a></li>
+                    </ul>
+                </div>
+    
+                <div class="footer-column">
+                    <h3>PPC AGENCY</h3>
+                    <ul>
+                        <li><a href="#">Google Ads</a></li>
+                        <li><a href="#">Facebook Ads</a></li>
+                        <li><a href="#">Instagram Ads</a></li>
+                    </ul>
+                </div>
+    
+                <div class="footer-column">
+                    <h3>SHOPIFY SERVICES</h3>
+                    <ul>
+                        <li><a href="#">Shopify Web Design</a></li>
+                        <li><a href="#">Shopify Development</a></li>
+                        <li><a href="#">Shopify Web Designer</a></li>
+                        <li><a href="#">Hire Shopify Developers</a></li>
+                        <li><a href="#">Shopify Marketing Experts</a></li>
+                        <li><a href="#">Shopify Migration</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <footer>
+        <p>&copy; 2025 GD Technology. All rights reserved.</p>
+    </footer>
+    <script>
+        document.querySelectorAll(".faq-question").forEach(button => {
+    button.addEventListener("click", () => {
+        const answer = button.nextElementSibling;
+        
+        // Close all other answers
+        document.querySelectorAll(".faq-answer").forEach(item => {
+            if (item !== answer) item.classList.remove("open");
+        });
+
+        // Toggle clicked FAQ
+        answer.classList.toggle("open");
+    });
+});
+
+    </script>
+</body>
+</html>
